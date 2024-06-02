@@ -15,6 +15,8 @@
 		C0931F3D2C0C36FC00DA807A /* LMessenger_kgcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F3C2C0C36FC00DA807A /* LMessenger_kgcUITests.swift */; };
 		C0931F3F2C0C36FC00DA807A /* LMessenger_kgcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F3E2C0C36FC00DA807A /* LMessenger_kgcUITestsLaunchTests.swift */; };
 		C0931F4C2C0C387C00DA807A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F4B2C0C387C00DA807A /* Color.xcassets */; };
+		C0931F522C0C3A2700DA807A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F512C0C3A2700DA807A /* Color+Extension.swift */; };
+		C0931F552C0C3CD900DA807A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0931F542C0C3CD900DA807A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 		C0931F3C2C0C36FC00DA807A /* LMessenger_kgcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessenger_kgcUITests.swift; sourceTree = "<group>"; };
 		C0931F3E2C0C36FC00DA807A /* LMessenger_kgcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessenger_kgcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C0931F4B2C0C387C00DA807A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		C0931F512C0C3A2700DA807A /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		C0931F532C0C3C8F00DA807A /* LMessenger-kgc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LMessenger-kgc-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C0931F542C0C3CD900DA807A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +101,10 @@
 		C0931F202C0C36FB00DA807A /* LMessenger_kgc */ = {
 			isa = PBXGroup;
 			children = (
+				C0931F532C0C3C8F00DA807A /* LMessenger-kgc-Info.plist */,
 				C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */,
 				C0931F232C0C36FB00DA807A /* ContentView.swift */,
+				C0931F4E2C0C39E000DA807A /* Extension */,
 				C0931F4D2C0C389000DA807A /* Resources */,
 				C0931F272C0C36FC00DA807A /* Preview Content */,
 			);
@@ -132,10 +139,19 @@
 		C0931F4D2C0C389000DA807A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C0931F542C0C3CD900DA807A /* LaunchScreen.storyboard */,
 				C0931F252C0C36FC00DA807A /* Assets.xcassets */,
 				C0931F4B2C0C387C00DA807A /* Color.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C0931F4E2C0C39E000DA807A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C0931F512C0C3A2700DA807A /* Color+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0931F292C0C36FC00DA807A /* Preview Assets.xcassets in Resources */,
+				C0931F552C0C3CD900DA807A /* LaunchScreen.storyboard in Resources */,
 				C0931F262C0C36FC00DA807A /* Assets.xcassets in Resources */,
 				C0931F4C2C0C387C00DA807A /* Color.xcassets in Resources */,
 			);
@@ -270,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0931F242C0C36FB00DA807A /* ContentView.swift in Sources */,
+				C0931F522C0C3A2700DA807A /* Color+Extension.swift in Sources */,
 				C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,9 +455,10 @@
 				DEVELOPMENT_TEAM = 62BCLQNF78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LMessenger-kgc-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,9 +488,10 @@
 				DEVELOPMENT_TEAM = 62BCLQNF78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LMessenger-kgc-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
