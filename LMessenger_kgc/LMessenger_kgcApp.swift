@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct LMessenger_kgcApp: App {
+    @StateObject var container: DIContainer = .init(services: Services())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticaetdView(authViewModel: .init())
         }
     }
 }

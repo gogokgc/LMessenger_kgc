@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */; };
-		C0931F242C0C36FB00DA807A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F232C0C36FB00DA807A /* ContentView.swift */; };
+		C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */; };
 		C0931F262C0C36FC00DA807A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F252C0C36FC00DA807A /* Assets.xcassets */; };
 		C0931F292C0C36FC00DA807A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F282C0C36FC00DA807A /* Preview Assets.xcassets */; };
 		C0931F332C0C36FC00DA807A /* LMessenger_kgcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F322C0C36FC00DA807A /* LMessenger_kgcTests.swift */; };
@@ -17,6 +17,9 @@
 		C0931F4C2C0C387C00DA807A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F4B2C0C387C00DA807A /* Color.xcassets */; };
 		C0931F522C0C3A2700DA807A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F512C0C3A2700DA807A /* Color+Extension.swift */; };
 		C0931F552C0C3CD900DA807A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0931F542C0C3CD900DA807A /* LaunchScreen.storyboard */; };
+		C0931F582C0C598F00DA807A /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F572C0C598F00DA807A /* DIContainer.swift */; };
+		C0931F5B2C0C5A2100DA807A /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F5A2C0C5A2100DA807A /* Services.swift */; };
+		C0931F5F2C0C5B0C00DA807A /* AuthenticaetionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F5E2C0C5B0C00DA807A /* AuthenticaetionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,7 @@
 /* Begin PBXFileReference section */
 		C0931F1E2C0C36FB00DA807A /* LMessenger_kgc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger_kgc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessenger_kgcApp.swift; sourceTree = "<group>"; };
-		C0931F232C0C36FB00DA807A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticaetdView.swift; sourceTree = "<group>"; };
 		C0931F252C0C36FC00DA807A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0931F282C0C36FC00DA807A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C0931F2E2C0C36FC00DA807A /* LMessenger_kgcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMessenger_kgcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +54,9 @@
 		C0931F512C0C3A2700DA807A /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C0931F532C0C3C8F00DA807A /* LMessenger-kgc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LMessenger-kgc-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C0931F542C0C3CD900DA807A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C0931F572C0C598F00DA807A /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		C0931F5A2C0C5A2100DA807A /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		C0931F5E2C0C5B0C00DA807A /* AuthenticaetionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticaetionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,11 @@
 		C0931F202C0C36FB00DA807A /* LMessenger_kgc */ = {
 			isa = PBXGroup;
 			children = (
-				C0931F532C0C3C8F00DA807A /* LMessenger-kgc-Info.plist */,
 				C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */,
-				C0931F232C0C36FB00DA807A /* ContentView.swift */,
+				C0931F562C0C597F00DA807A /* General */,
+				C0931F5C2C0C5AD500DA807A /* View */,
+				C0931F592C0C5A1200DA807A /* Service */,
+				C0931F532C0C3C8F00DA807A /* LMessenger-kgc-Info.plist */,
 				C0931F4E2C0C39E000DA807A /* Extension */,
 				C0931F4D2C0C389000DA807A /* Resources */,
 				C0931F272C0C36FC00DA807A /* Preview Content */,
@@ -152,6 +160,39 @@
 				C0931F512C0C3A2700DA807A /* Color+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		C0931F562C0C597F00DA807A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C0931F572C0C598F00DA807A /* DIContainer.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		C0931F592C0C5A1200DA807A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C0931F5A2C0C5A2100DA807A /* Services.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C0931F5C2C0C5AD500DA807A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0931F5D2C0C5ADC00DA807A /* Authentication */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0931F5D2C0C5ADC00DA807A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */,
+				C0931F5E2C0C5B0C00DA807A /* AuthenticaetionViewModel.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0931F242C0C36FB00DA807A /* ContentView.swift in Sources */,
+				C0931F582C0C598F00DA807A /* DIContainer.swift in Sources */,
+				C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */,
+				C0931F5F2C0C5B0C00DA807A /* AuthenticaetionViewModel.swift in Sources */,
+				C0931F5B2C0C5A2100DA807A /* Services.swift in Sources */,
 				C0931F522C0C3A2700DA807A /* Color+Extension.swift in Sources */,
 				C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */,
 			);
