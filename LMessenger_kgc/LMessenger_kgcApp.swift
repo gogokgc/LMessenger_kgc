@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct LMessenger_kgcApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var container: DIContainer = .init(services: Services())
     
     var body: some Scene {
