@@ -14,7 +14,8 @@ struct LMessenger_kgcApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AuthenticaetdView(authViewModel: .init())
+            AuthenticaetdView(authViewModel: .init(container: container))
+                .environmentObject(container)
         }
     }
 }
