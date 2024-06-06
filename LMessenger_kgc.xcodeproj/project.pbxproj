@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C086DF642C11A75D00E2E312 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF632C11A75D00E2E312 /* LoginView.swift */; };
+		C086DF662C11A86200E2E312 /* LoginButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF652C11A86200E2E312 /* LoginButtonStyle.swift */; };
 		C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */; };
 		C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */; };
 		C0931F262C0C36FC00DA807A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F252C0C36FC00DA807A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		C086DF632C11A75D00E2E312 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C086DF652C11A86200E2E312 /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		C0931F1E2C0C36FB00DA807A /* LMessenger_kgc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger_kgc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessenger_kgcApp.swift; sourceTree = "<group>"; };
 		C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticaetdView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		C0931F6B2C10583E00DA807A /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C086DF652C11A86200E2E312 /* LoginButtonStyle.swift */,
 				C0931F712C1058AF00DA807A /* LoginIntroView.swift */,
 				C086DF632C11A75D00E2E312 /* LoginView.swift */,
 			);
@@ -377,6 +380,7 @@
 				C0931F662C0EE6C700DA807A /* AppDelegate.swift in Sources */,
 				C0931F522C0C3A2700DA807A /* Color+Extension.swift in Sources */,
 				C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */,
+				C086DF662C11A86200E2E312 /* LoginButtonStyle.swift in Sources */,
 				C0931F6A2C103A4B00DA807A /* AuthenticationService.swift in Sources */,
 				C086DF642C11A75D00E2E312 /* LoginView.swift in Sources */,
 				C0931F702C10589C00DA807A /* MainTabView.swift in Sources */,
