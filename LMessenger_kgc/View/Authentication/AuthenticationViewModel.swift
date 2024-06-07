@@ -17,9 +17,11 @@ enum AuthenticationState {
 class AuthenticationViewModel: ObservableObject {
     
     enum Action {
+        case checkAuthenticationState
         case googleLogin
         case appleLogin(ASAuthorizationAppleIDRequest)
         case appleLoginCompletion(Result<ASAuthorization, Error>)
+        case logout
     }
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
@@ -37,6 +39,12 @@ class AuthenticationViewModel: ObservableObject {
     
     func send(action: Action) {
         switch action {
+        case .checkAuthenticationState:
+            if let userId = container.services.authService.checkAuthenticationState() {
+                self.userId = userId
+                self.authenticationState = .authenticated
+            }
+            
         case .googleLogin:
             isLoading = true
             
@@ -48,7 +56,9 @@ class AuthenticationViewModel: ObservableObject {
                 } receiveValue: { [weak self] user in
                     self?.isLoading = false
                     self?.userId = user.id
+                    self?.authenticationState = .authenticated
                 }.store(in: &subscriptions)
+            
         case let .appleLogin(request):
             let nonce = container.services.authService.handleSignInWithAppleRequest(request)
             currentNonce = nonce
@@ -65,12 +75,23 @@ class AuthenticationViewModel: ObservableObject {
                     } receiveValue: { [weak self] user in
                         self?.isLoading = false
                         self?.userId = user.id
+                        self?.authenticationState = .authenticated
                     }.store(in: &subscriptions)
                 
             } else if case let .failure(error) = result {
                 isLoading = false
                 print(error.localizedDescription)
             }
+            
+        case .logout:
+            container.services.authService.logout()
+                .sink { completion in
+                    
+                } receiveValue: { [weak self] _ in
+                    self?.authenticationState = .unauthenticated
+                    self?.userId = nil
+                }.store(in: &subscriptions)
+
         }
     }
 }
