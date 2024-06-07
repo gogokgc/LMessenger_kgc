@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AuthenticaetdView: View {
-    @StateObject var authViewModel: AuthenticaetionViewModel
+    @StateObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
         switch authViewModel.authenticationState {

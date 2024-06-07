@@ -25,7 +25,6 @@ struct LoginIntroView: View {
                 Spacer()
                 
                 Button {
-                    //TODO: 로그인 액션
                     isPresentedLoginView.toggle()
                 } label: {
                     Text("로그인")

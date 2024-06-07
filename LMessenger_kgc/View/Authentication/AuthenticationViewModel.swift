@@ -1,5 +1,5 @@
 //
-//  AuthenticaetionViewModel.swift
+//  AuthenticationViewModel.swift
 //  LMessenger_kgc
 //
 //  Created by KYUCHEOL KIM on 6/2/24.
@@ -12,7 +12,11 @@ enum AuthenticationState {
     case authenticated
 }
 
-class AuthenticaetionViewModel: ObservableObject {
+class AuthenticationViewModel: ObservableObject {
+    
+    enum Action {
+        case googleLogin
+    }
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
     
