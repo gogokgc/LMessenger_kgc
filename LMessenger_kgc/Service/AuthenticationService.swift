@@ -23,7 +23,16 @@ protocol AuthenticationServiceType {
 
 class AuthenticationService: AuthenticationServiceType {
     func signInWithGoogle() -> AnyPublisher<User, ServiceError> {
-        Empty().eraseToAnyPublisher()
+        Future { [weak self] promise in
+            self?.signInWithGoogle { result in
+                switch result {
+                case let .success(user):
+                    promise(.success(user))
+                case let .failure(error):
+                    promise(.failure(.error(error)))
+                }
+            }
+        }.eraseToAnyPublisher()
     }
 }
 
