@@ -13,6 +13,8 @@
 		C086DF6B2C11D74B00E2E312 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C086DF6A2C11D74B00E2E312 /* GoogleSignInSwift */; };
 		C086DF6E2C11D8A700E2E312 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF6D2C11D8A700E2E312 /* User.swift */; };
 		C086DF702C11D92F00E2E312 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF6F2C11D92F00E2E312 /* ServiceError.swift */; };
+		C086DF732C12E3BE00E2E312 /* RandomNonceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF722C12E3BE00E2E312 /* RandomNonceString.swift */; };
+		C086DF752C12E3D600E2E312 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = C086DF742C12E3D600E2E312 /* SHA256.swift */; };
 		C0931F222C0C36FB00DA807A /* LMessenger_kgcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */; };
 		C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */; };
 		C0931F262C0C36FC00DA807A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0931F252C0C36FC00DA807A /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 		C086DF652C11A86200E2E312 /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		C086DF6D2C11D8A700E2E312 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C086DF6F2C11D92F00E2E312 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		C086DF722C12E3BE00E2E312 /* RandomNonceString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNonceString.swift; sourceTree = "<group>"; };
+		C086DF742C12E3D600E2E312 /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
 		C0931F1E2C0C36FB00DA807A /* LMessenger_kgc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMessenger_kgc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0931F212C0C36FB00DA807A /* LMessenger_kgcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMessenger_kgcApp.swift; sourceTree = "<group>"; };
 		C0931F232C0C36FB00DA807A /* AuthenticaetdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticaetdView.swift; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C086DF712C12E37500E2E312 /* Utill */ = {
+			isa = PBXGroup;
+			children = (
+				C086DF722C12E3BE00E2E312 /* RandomNonceString.swift */,
+				C086DF742C12E3D600E2E312 /* SHA256.swift */,
+			);
+			path = Utill;
+			sourceTree = "<group>";
+		};
 		C0931F152C0C36FB00DA807A = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 				C0931F6B2C10583E00DA807A /* Login */,
 				C0931F6C2C10584500DA807A /* MainTab */,
 				C0931F592C0C5A1200DA807A /* Service */,
+				C086DF712C12E37500E2E312 /* Utill */,
 				C0931F4E2C0C39E000DA807A /* Extension */,
 				C0931F4D2C0C389000DA807A /* Resources */,
 				C0931F272C0C36FC00DA807A /* Preview Content */,
@@ -394,8 +408,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C086DF752C12E3D600E2E312 /* SHA256.swift in Sources */,
 				C086DF6E2C11D8A700E2E312 /* User.swift in Sources */,
 				C0931F582C0C598F00DA807A /* DIContainer.swift in Sources */,
+				C086DF732C12E3BE00E2E312 /* RandomNonceString.swift in Sources */,
 				C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */,
 				C0931F5F2C0C5B0C00DA807A /* AuthenticationViewModel.swift in Sources */,
 				C0931F5B2C0C5A2100DA807A /* Services.swift in Sources */,
