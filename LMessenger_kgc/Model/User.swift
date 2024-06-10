@@ -28,12 +28,12 @@ struct User: Identifiable {
 //    }
 //}
 
-//extension User {
-//    static var stub1: User {
-//        .init(id: "user1_id", name: "김하늘")
-//    }
-//    
-//    static var stub2: User {
-//        .init(id: "user2_id", name: "김코랄")
-//    }
-//}
+extension User {
+    static var stub1: User {
+        .init(id: "user1_id", name: "김하늘")
+    }
+    
+    static var stub2: User {
+        .init(id: "user2_id", name: "김코랄")
+    }
+}
