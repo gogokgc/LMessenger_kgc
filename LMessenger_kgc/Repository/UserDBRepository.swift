@@ -22,11 +22,6 @@ class UserDBRepository: UserDBRepositoryType {
         Just(object)
             .compactMap { try? JSONEncoder().encode($0) }
             .compactMap { try? JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed) }
-//            .flatMap { [weak self] value -> AnyPublisher<Void, DBError> in
-//                guard let `self` = self else { return Empty().eraseToAnyPublisher() }
-//                return self.reference.setValue(key: DBKey.Users, path: object.id, value: value)
-//            }
-//            .eraseToAnyPublisher()
             .flatMap { value in
                 Future<Void, Error> { [weak self] promise in
                     self?.db.child(DBKey.Users).child(object.id).setValue(value) { error, _ in

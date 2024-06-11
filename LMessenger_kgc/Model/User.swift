@@ -16,17 +16,17 @@ struct User: Identifiable {
     var fcmToken: String?
 }
 
-//extension User {
-//    func toObject() -> UserObject {
-//        .init(id: id,
-//              name: name,
-//              phoneNumber: phoneNumber,
-//              profileURL: profileURL,
-//              description: description,
-//              fcmToken: fcmToken
-//        )
-//    }
-//}
+extension User {
+    func toObject() -> UserObject {
+        .init(id: id,
+              name: name,
+              phoneNumber: phoneNumber,
+              profileURL: profileURL,
+              description: description,
+              fcmToken: fcmToken
+        )
+    }
+}
 
 extension User {
     static var stub1: User {

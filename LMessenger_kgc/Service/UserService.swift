@@ -6,12 +6,20 @@
 //
 
 import Foundation
+import Combine
 
 protocol UserServiceType {
+    func addUser(_ user: User) -> AnyPublisher<User, ServiceError>
     
 }
 
 class UserService: UserServiceType {
+    func addUser(_ user: User) -> AnyPublisher<User, ServiceError> {
+        dbRepository.addUser(user.toObject())
+            .map{ user }
+            .mapError{ .error($0) }
+            .eraseToAnyPublisher()
+    }
     
     private var dbRepository: UserDBRepositoryType
     
@@ -22,5 +30,8 @@ class UserService: UserServiceType {
 }
 
 class StubUserService: UserServiceType {
+    func addUser(_ user: User) -> AnyPublisher<User, ServiceError> {
+        Empty().eraseToAnyPublisher()
+    }
     
 }

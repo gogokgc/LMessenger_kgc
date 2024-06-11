@@ -49,6 +49,9 @@ class AuthenticationViewModel: ObservableObject { // AuthenticationViewModel 클
             isLoading = true // 로딩 상태를 true로 설정합니다.
             
             container.services.authService.signInWithGoogle() // Google 로그인 시도합니다.
+                .flatMap { user in // 로그인 성공 시, 사용자 정보를 받아옵니다.
+                    self.container.services.userService.addUser(user) // 받은 사용자 정보를 이용해 UserService에 사용자를 추가합니다.
+                }
                 .sink { [weak self] completion in // 비동기 작업의 완료를 처리합니다.
                     if case .failure = completion { // 실패한 경우
                         self?.isLoading = false // 로딩 상태를 false로 설정합니다.
@@ -68,6 +71,9 @@ class AuthenticationViewModel: ObservableObject { // AuthenticationViewModel 클
                 guard let nonce = currentNonce else { return } // nonce가 존재하는지 확인합니다.
                 
                 container.services.authService.handleSignInWithAppleCompletion(authorization, none: nonce) // Apple 로그인 완료를 처리합니다.
+                    .flatMap { user in // 로그인 성공 시, 사용자 정보를 받아옵니다.
+                        self.container.services.userService.addUser(user) // 받은 사용자 정보를 이용해 UserService에 사용자를 추가합니다.
+                    }
                     .sink { [weak self] completion in // 비동기 작업의 완료를 처리합니다.
                         if case .failure = completion { // 실패한 경우
                             self?.isLoading = false // 로딩 상태를 false로 설정합니다.
