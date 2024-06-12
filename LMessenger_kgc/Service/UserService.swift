@@ -11,6 +11,7 @@ import Combine
 protocol UserServiceType {
     func addUser(_ user: User) -> AnyPublisher<User, ServiceError> // addUser 메서드를 정의합니다. 이 메서드는 User 객체를 받아서 AnyPublisher<User, ServiceError>를 반환합니다.
     func getUser(userId: String) -> AnyPublisher<User, ServiceError>
+    func loadUsers(id: String) -> AnyPublisher<[User], ServiceError>
 }
 
 class UserService: UserServiceType {
@@ -25,6 +26,16 @@ class UserService: UserServiceType {
         dbRepository.getUser(userId: userId)
             .map { $0.toModel()}
             .mapError{ .error($0)}
+            .eraseToAnyPublisher()
+    }
+    
+    func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
+        dbRepository.loadUsers()
+            .map { $0
+                .map { $0.toModel() }
+                .filter { $0.id != id }
+            }
+            .mapError { .error($0) }
             .eraseToAnyPublisher()
     }
     
@@ -44,5 +55,9 @@ class StubUserService: UserServiceType {
     
     func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
         Empty().eraseToAnyPublisher()
+    }
+    
+    func loadUsers(id: String) -> AnyPublisher<[User], ServiceError> {
+        Just([.stub1, .stub2]).setFailureType(to: ServiceError.self).eraseToAnyPublisher()
     }
 }

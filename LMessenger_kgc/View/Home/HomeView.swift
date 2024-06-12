@@ -58,7 +58,7 @@ struct HomeView: View {
                 }
             }
             .onAppear {
-                viewModel.send(action: .getUser) // 뷰가 나타날 때 사용자 정보를 가져오는 액션을 실행합니다.
+                viewModel.send(action: .load) // 뷰가 나타날 때 사용자 정보를 가져오는 액션을 실행합니다.
             }
         }
     }
