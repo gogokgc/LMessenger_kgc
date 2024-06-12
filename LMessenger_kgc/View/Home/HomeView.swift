@@ -57,6 +57,9 @@ struct HomeView: View {
                     Image("settings", label: Text("설정"))
                 }
             }
+            .onAppear {
+                viewModel.send(action: .getUser)
+            }
         }
     }
     
@@ -129,5 +132,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: .init())
+    HomeView(viewModel: .init(container: .init(services: StubService()), userId: "user1_id"))
 }
