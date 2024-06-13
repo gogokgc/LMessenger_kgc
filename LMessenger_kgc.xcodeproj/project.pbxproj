@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02D646B2C1B0C17004B03BB /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D646A2C1B0C17004B03BB /* Phase.swift */; };
+		C02D646D2C1B0E27004B03BB /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D646C2C1B0E27004B03BB /* PlaceHolderView.swift */; };
+		C02D64702C1B0E67004B03BB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D646F2C1B0E67004B03BB /* LoadingView.swift */; };
+		C02D64722C1B0EEC004B03BB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D64712C1B0EEC004B03BB /* ErrorView.swift */; };
 		C053C3F62C14489400AB5C39 /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3F52C14489400AB5C39 /* MainTabType.swift */; };
 		C053C3FA2C14495F00AB5C39 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3F92C14495F00AB5C39 /* HomeView.swift */; };
 		C053C3FC2C14496800AB5C39 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3FB2C14496800AB5C39 /* ChatListView.swift */; };
@@ -64,6 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C02D646A2C1B0C17004B03BB /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		C02D646C2C1B0E27004B03BB /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
+		C02D646F2C1B0E67004B03BB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C02D64712C1B0EEC004B03BB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C053C3F52C14489400AB5C39 /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
 		C053C3F92C14495F00AB5C39 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C053C3FB2C14496800AB5C39 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
@@ -132,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02D646E2C1B0E55004B03BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C02D646C2C1B0E27004B03BB /* PlaceHolderView.swift */,
+				C02D646F2C1B0E67004B03BB /* LoadingView.swift */,
+				C02D64712C1B0EEC004B03BB /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C053C3F72C14494D00AB5C39 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,8 +272,10 @@
 		C0931F562C0C597F00DA807A /* General */ = {
 			isa = PBXGroup;
 			children = (
+				C02D646E2C1B0E55004B03BB /* View */,
 				C0931F572C0C598F00DA807A /* DIContainer.swift */,
 				C091A9742C180BED00EBC294 /* Constant.swift */,
+				C02D646A2C1B0C17004B03BB /* Phase.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -483,6 +503,9 @@
 				C053C3F62C14489400AB5C39 /* MainTabType.swift in Sources */,
 				C086DF6E2C11D8A700E2E312 /* User.swift in Sources */,
 				C0BCD2332C16E42900ADA6FB /* UserObject.swift in Sources */,
+				C02D64722C1B0EEC004B03BB /* ErrorView.swift in Sources */,
+				C02D64702C1B0E67004B03BB /* LoadingView.swift in Sources */,
+				C02D646B2C1B0C17004B03BB /* Phase.swift in Sources */,
 				C053C3FE2C144BB500AB5C39 /* HomeViewModel.swift in Sources */,
 				C0931F582C0C598F00DA807A /* DIContainer.swift in Sources */,
 				C086DF732C12E3BE00E2E312 /* RandomNonceString.swift in Sources */,
@@ -502,6 +525,7 @@
 				C086DF642C11A75D00E2E312 /* LoginView.swift in Sources */,
 				C0931F702C10589C00DA807A /* MainTabView.swift in Sources */,
 				C086DF702C11D92F00E2E312 /* ServiceError.swift in Sources */,
+				C02D646D2C1B0E27004B03BB /* PlaceHolderView.swift in Sources */,
 				C0931F722C1058AF00DA807A /* LoginIntroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

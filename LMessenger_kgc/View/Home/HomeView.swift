@@ -12,53 +12,71 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                profileView
-                    .padding(.bottom, 30) // 프로필 뷰를 추가하고 아래쪽 패딩을 설정합니다.
-                
-                searchButton
-                    .padding(.bottom, 24) // 검색 버튼을 추가하고 아래쪽 패딩을 설정합니다.
-                
-                HStack {
-                    Text("친구")
-                        .font(.system(size: 14)) // 텍스트의 폰트 크기를 설정합니다.
-                        .foregroundColor(.bkText) // 텍스트의 색상을 설정합니다.
-                    
-                    Spacer()
+            contentView
+        }
+    }
+    
+    @ViewBuilder
+    var contentView: some View {
+        switch viewModel.phase {
+        case .notRequested:
+            PlaceHolderView()
+                .onAppear {
+                    viewModel.send(action: .load) // 뷰가 나타날 때 사용자 정보를 가져오는 액션을 실행합니다.
                 }
-                .padding(.horizontal, 30) // 수평 패딩을 설정합니다.
+        case .loading:
+            LoadingView()
+        case .success:
+            loadedView
+        case .fail:
+            ErrorView()
+        }
+    }
+    
+    var loadedView: some View {
+        ScrollView {
+            profileView
+                .padding(.bottom, 30) // 프로필 뷰를 추가하고 아래쪽 패딩을 설정합니다.
+            
+            searchButton
+                .padding(.bottom, 24) // 검색 버튼을 추가하고 아래쪽 패딩을 설정합니다.
+            
+            HStack {
+                Text("친구")
+                    .font(.system(size: 14)) // 텍스트의 폰트 크기를 설정합니다.
+                    .foregroundColor(.bkText) // 텍스트의 색상을 설정합니다.
                 
-                if viewModel.users.isEmpty {
-                    Spacer(minLength: 89) // 최소 길이가 89인 Spacer를 추가합니다.
-                    emptyView // 사용자 목록이 비어있을 경우 표시할 emptyView를 추가합니다.
-                } else {
-                    ForEach(viewModel.users, id: \.id) { user in // 사용자 목록을 순회하며 사용자 정보를 표시합니다.
-                        HStack(spacing: 8) {
-                            Image("person")
-                                .resizable()
-                                .frame(width: 40, height: 40) // 이미지의 크기를 설정합니다.
-                                .clipShape(Circle()) // 이미지를 원형으로 자릅니다.
-                            Text(user.name)
-                                .font(.system(size: 12)) // 텍스트의 폰트 크기를 설정합니다.
-                                .foregroundColor(.bkText) // 텍스트의 색상을 설정합니다.
-                            Spacer()
-                        }
-                        .padding(.horizontal, 30) // 수평 패딩을 설정합니다.
+                Spacer()
+            }
+            .padding(.horizontal, 30) // 수평 패딩을 설정합니다.
+            
+            if viewModel.users.isEmpty {
+                Spacer(minLength: 89) // 최소 길이가 89인 Spacer를 추가합니다.
+                emptyView // 사용자 목록이 비어있을 경우 표시할 emptyView를 추가합니다.
+            } else {
+                ForEach(viewModel.users, id: \.id) { user in // 사용자 목록을 순회하며 사용자 정보를 표시합니다.
+                    HStack(spacing: 8) {
+                        Image("person")
+                            .resizable()
+                            .frame(width: 40, height: 40) // 이미지의 크기를 설정합니다.
+                            .clipShape(Circle()) // 이미지를 원형으로 자릅니다.
+                        Text(user.name)
+                            .font(.system(size: 12)) // 텍스트의 폰트 크기를 설정합니다.
+                            .foregroundColor(.bkText) // 텍스트의 색상을 설정합니다.
+                        Spacer()
                     }
+                    .padding(.horizontal, 30) // 수평 패딩을 설정합니다.
                 }
             }
-            .toolbar {
-                Image("bookmark") // 북마크 이미지 아이콘을 추가합니다.
-                Image("notifications") // 알림 이미지 아이콘을 추가합니다.
-                Image("person_add") // 친구 추가 이미지 아이콘을 추가합니다.
-                Button {
-                    // viewModel.send(action: .presentView(.setting)) // 설정 화면을 표시하는 액션 (주석 처리됨)
-                } label: {
-                    Image("settings", label: Text("설정")) // 설정 버튼을 추가하고 레이블을 설정합니다.
-                }
-            }
-            .onAppear {
-                viewModel.send(action: .load) // 뷰가 나타날 때 사용자 정보를 가져오는 액션을 실행합니다.
+        }
+        .toolbar {
+            Image("bookmark") // 북마크 이미지 아이콘을 추가합니다.
+            Image("notifications") // 알림 이미지 아이콘을 추가합니다.
+            Image("person_add") // 친구 추가 이미지 아이콘을 추가합니다.
+            Button {
+                // viewModel.send(action: .presentView(.setting)) // 설정 화면을 표시하는 액션 (주석 처리됨)
+            } label: {
+                Image("settings", label: Text("설정")) // 설정 버튼을 추가하고 레이블을 설정합니다.
             }
         }
     }
