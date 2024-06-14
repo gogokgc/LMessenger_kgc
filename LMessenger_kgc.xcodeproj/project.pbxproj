@@ -11,6 +11,9 @@
 		C02D646D2C1B0E27004B03BB /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D646C2C1B0E27004B03BB /* PlaceHolderView.swift */; };
 		C02D64702C1B0E67004B03BB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D646F2C1B0E67004B03BB /* LoadingView.swift */; };
 		C02D64722C1B0EEC004B03BB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D64712C1B0EEC004B03BB /* ErrorView.swift */; };
+		C02D64742C1C160F004B03BB /* HomeModalDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D64732C1C160F004B03BB /* HomeModalDestination.swift */; };
+		C02D64772C1C1744004B03BB /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D64762C1C1744004B03BB /* MyProfileView.swift */; };
+		C02D64792C1C1755004B03BB /* OtherProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02D64782C1C1755004B03BB /* OtherProfileView.swift */; };
 		C053C3F62C14489400AB5C39 /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3F52C14489400AB5C39 /* MainTabType.swift */; };
 		C053C3FA2C14495F00AB5C39 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3F92C14495F00AB5C39 /* HomeView.swift */; };
 		C053C3FC2C14496800AB5C39 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C053C3FB2C14496800AB5C39 /* ChatListView.swift */; };
@@ -72,6 +75,9 @@
 		C02D646C2C1B0E27004B03BB /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
 		C02D646F2C1B0E67004B03BB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C02D64712C1B0EEC004B03BB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		C02D64732C1C160F004B03BB /* HomeModalDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModalDestination.swift; sourceTree = "<group>"; };
+		C02D64762C1C1744004B03BB /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		C02D64782C1C1755004B03BB /* OtherProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileView.swift; sourceTree = "<group>"; };
 		C053C3F52C14489400AB5C39 /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
 		C053C3F92C14495F00AB5C39 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C053C3FB2C14496800AB5C39 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
@@ -150,11 +156,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C02D64752C1C1731004B03BB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C02D64762C1C1744004B03BB /* MyProfileView.swift */,
+				C02D64782C1C1755004B03BB /* OtherProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		C053C3F72C14494D00AB5C39 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				C053C3F92C14495F00AB5C39 /* HomeView.swift */,
 				C053C3FD2C144BB500AB5C39 /* HomeViewModel.swift */,
+				C02D64732C1C160F004B03BB /* HomeModalDestination.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -294,6 +310,7 @@
 		C0931F5C2C0C5AD500DA807A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C02D64752C1C1731004B03BB /* Profile */,
 				C0931F5D2C0C5ADC00DA807A /* Authentication */,
 				C0931F6B2C10583E00DA807A /* Login */,
 				C0931F6C2C10584500DA807A /* MainTab */,
@@ -509,6 +526,7 @@
 				C053C3FE2C144BB500AB5C39 /* HomeViewModel.swift in Sources */,
 				C0931F582C0C598F00DA807A /* DIContainer.swift in Sources */,
 				C086DF732C12E3BE00E2E312 /* RandomNonceString.swift in Sources */,
+				C02D64742C1C160F004B03BB /* HomeModalDestination.swift in Sources */,
 				C0BCD2302C16E22900ADA6FB /* UserService.swift in Sources */,
 				C0BCD22E2C16E1E900ADA6FB /* UserDBRepository.swift in Sources */,
 				C0931F242C0C36FB00DA807A /* AuthenticaetdView.swift in Sources */,
@@ -526,7 +544,9 @@
 				C0931F702C10589C00DA807A /* MainTabView.swift in Sources */,
 				C086DF702C11D92F00E2E312 /* ServiceError.swift in Sources */,
 				C02D646D2C1B0E27004B03BB /* PlaceHolderView.swift in Sources */,
+				C02D64772C1C1744004B03BB /* MyProfileView.swift in Sources */,
 				C0931F722C1058AF00DA807A /* LoginIntroView.swift in Sources */,
+				C02D64792C1C1755004B03BB /* OtherProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

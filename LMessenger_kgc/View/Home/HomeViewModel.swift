@@ -12,11 +12,14 @@ class HomeViewModel: ObservableObject {
     
     enum Action {
         case load // 사용자 정보를 가져오는 액션을 정의합니다.
+        case presentMyProfileView
+        case presentOtherprofileView(String)
     }
     
     @Published var myUser: User? // myUser는 사용자 정보를 저장하는 옵셔널 User 객체입니다.
     @Published var users: [User] = [] // users는 User 객체의 배열로, 초기값은 빈 배열입니다.
     @Published var phase: Phase = .notRequested
+    @Published var modalDestination: HomeModalDestination?
     
     private var userId: String // 사용자 ID를 저장하는 변수입니다.
     private var container: DIContainer // 의존성 주입 컨테이너를 저장하는 변수입니다.
@@ -52,6 +55,12 @@ class HomeViewModel: ObservableObject {
                     self?.users = user // users 변수에 받아온 사용자 정보를 저장합니다.
                 }
                 .store(in: &subscriptions) // 구독을 저장하여 메모리에서 해제되지 않도록 합니다.
+            
+        case .presentMyProfileView:
+            modalDestination = .myProfile
+            
+        case let .presentOtherprofileView(userId):
+            modalDestination = .otherProfile(userId)
         }
     }
 }
