@@ -10,7 +10,7 @@ import Combine
 
 protocol UserServiceType {
     func addUser(_ user: User) -> AnyPublisher<User, ServiceError> // addUser 메서드를 정의합니다. 이 메서드는 User 객체를 받아서 AnyPublisher<User, ServiceError>를 반환합니다.
-//    func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError>
+    func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError>
     func getUser(userId: String) -> AnyPublisher<User, ServiceError>
     func loadUsers(id: String) -> AnyPublisher<[User], ServiceError>
 }
@@ -23,11 +23,11 @@ class UserService: UserServiceType {
             .eraseToAnyPublisher() // 퍼블리셔를 AnyPublisher 타입으로 변환하여 반환합니다.
     }
     
-//    func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError> {
-//        dbRepository.addUserAfterContact(users: users.map { $0.toObject()} )
-//            .mapError { .error($0) }
-//            .eraseToAnyPublisher()
-//    }
+    func addUserAfterContact(users: [User]) -> AnyPublisher<Void, ServiceError> {
+        dbRepository.addUserAfterContact(users: users.map { $0.toObject()} )
+            .mapError { .error($0) }
+            .eraseToAnyPublisher()
+    }
     
     func getUser(userId: String) -> AnyPublisher<User, ServiceError> {
         dbRepository.getUser(userId: userId)

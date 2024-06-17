@@ -151,7 +151,7 @@ struct HomeView: View {
             .padding(.bottom, 30) // 아래쪽 패딩을 설정합니다.
             
             Button {
-                // TODO: 친구추가 액션 // 친구 추가 액션을 처리합니다.
+                viewModel.send(action: .requestContacts)
             } label: {
                 Text("친구추가")
                     .font(.system(size: 14)) // 텍스트의 폰트 크기를 설정합니다.

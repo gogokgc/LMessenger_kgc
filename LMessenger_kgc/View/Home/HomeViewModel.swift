@@ -12,6 +12,7 @@ class HomeViewModel: ObservableObject {
     
     enum Action {
         case load // 사용자 정보를 가져오는 액션을 정의합니다.
+        case requestContacts
         case presentMyProfileView
         case presentOtherprofileView(String)
     }
@@ -55,6 +56,23 @@ class HomeViewModel: ObservableObject {
                     self?.users = user // users 변수에 받아온 사용자 정보를 저장합니다.
                 }
                 .store(in: &subscriptions) // 구독을 저장하여 메모리에서 해제되지 않도록 합니다.
+            
+        case .requestContacts:
+            container.services.contactService.fetchContacts()
+                .flatMap { [weak self] users -> AnyPublisher<Void, ServiceError> in
+                    guard let `self` = self else { return Empty().eraseToAnyPublisher() }
+                    return self.container.services.userService.addUserAfterContact(users: users)
+                }
+                .flatMap { [weak self] _ -> AnyPublisher<[User], ServiceError> in
+                    guard let `self` = self else { return Empty().eraseToAnyPublisher() }
+                    return self.container.services.userService.loadUsers(id: self.userId)
+                }
+                .receive(on: DispatchQueue.main)
+                .sink { completion in
+                } receiveValue: { [weak self] users in
+                    self?.phase = .success
+                    self?.users = users
+                }.store(in: &subscriptions)
             
         case .presentMyProfileView:
             modalDestination = .myProfile

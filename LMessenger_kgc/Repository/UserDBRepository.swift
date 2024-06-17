@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 protocol UserDBRepositoryType {
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError> // addUser 메서드를 정의합니다.
+    func addUserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError>
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError> // getUser 메서드를 정의합니다.
     func loadUsers() -> AnyPublisher<[UserObject], DBError>
 }
@@ -42,6 +43,48 @@ class UserDBRepository: UserDBRepositoryType {
             }
             .mapError { DBError.error($0) } // Error 타입을 DBError 타입으로 변환합니다.
             .eraseToAnyPublisher() // 퍼블리셔를 AnyPublisher<Void, DBError> 타입으로 변환합니다.
+    }
+    
+    func addUserAfterContact(users: [UserObject]) -> AnyPublisher<Void, DBError> {
+        /*
+            Users/
+                user_id: [String:Any}
+                user_id: [String:Any}
+                user_id: [String:Any}
+         */
+        Publishers.Zip(users.publisher, users.publisher)
+            .compactMap { origin, converted in
+                if let converted = try? JSONEncoder().encode(converted) {
+                    return (origin, converted)
+                } else {
+                    return nil
+                }
+            }
+            .compactMap { origin, converted in
+                if let converted = try? JSONSerialization.jsonObject(with: converted, options: .fragmentsAllowed) {
+                    return (origin, converted)
+                } else {
+                    return nil
+                }
+            }
+//            .flatMap { [weak self] origin, converted -> AnyPublisher<Void, DBError> in
+//                guard let `self` = self else { return Empty().eraseToAnyPublisher() }
+//                return self.reference.setValue(key: DBKey.Users, path: origin.id, value: converted)
+//            }
+            .flatMap{ origin, converted in
+                Future<Void, Error> { [weak self] promise in
+                    self?.db.child(DBKey.Users).child(origin.id).setValue(converted) { error, _ in
+                        if let error {
+                            promise(.failure(error))
+                        } else {
+                            promise(.success(()))
+                        }
+                    }
+                }
+            }
+            .last()
+            .mapError { .error($0)}
+            .eraseToAnyPublisher()
     }
     
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError> { // getUser 메서드를 구현합니다. 이 메서드는 사용자 ID를 받아서 AnyPublisher<UserObject, DBError>를 반환합니다.
